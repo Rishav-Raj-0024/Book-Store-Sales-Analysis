@@ -75,3 +75,14 @@ order by stock;
 Select sum(total_amount) as TOTAL_Revenue from orders;
 
 
+-
+
+  ---------##### ADVANCED QUESTION :
+
+
+
+-- 12). RETRIEVE THE TOTAL NUMBER OF BOOKS SOLD FOR EACH GENRE
+Select books.Genre, sum(orders.quantity) as Total_books_sold 
+From orders join Books 
+on orders.book_id = books.book_id
+Group by books.Genre;
