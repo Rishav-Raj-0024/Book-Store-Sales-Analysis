@@ -60,5 +60,18 @@ Select * from books Order by Price Desc limit 1;
 Select * from orders
 where Quantity > 1;
 
+--8). RETRIEVE ALL ORDERS WHERE THE TOTAL AMOUNT EXCEEDS $20.
+Select * from orders
+where total_amount > 20;
+
+-- 9). LIST ALL THE GENRES AVAILABLE IN THE BOOKS TABLES
+Select DISTINCT genre from books;
+
+-- 10). FIND THE BOOK WITH THE LOWEST STOCK
+select * from Books
+order by stock;
+
+-- 11). CALCULATE THE TOTAL REVENUE GENERATED FROM ALL ORDERS
+Select sum(total_amount) as TOTAL_Revenue from orders;
 
 
