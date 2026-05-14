@@ -86,3 +86,29 @@ Select books.Genre, sum(orders.quantity) as Total_books_sold
 From orders join Books 
 on orders.book_id = books.book_id
 Group by books.Genre;
+
+-- 13). FIND THE AVERAGE PRICE OF BOOKS IN THE "FANTASY" GENERE.
+Select Avg(price) as Average_price
+from books
+where genre = 'Fantasy';
+
+-- 14). LIST CUSTOMERS WHO HAVE PLACED AT LEAST 2 ORDERS
+Select orders.customer_id, customers.name, count(orders.order_id) as Order_Count 
+from orders
+join customers on orders.customer_id = customers.customer_id
+group by orders.Customer_id, customers.name
+having count(order_id) >=2;
+
+--15). FIND THE MOST FREQUENTLY ORDERED BOOK 
+select orders.Book_id, books.title, Count(orders.order_id) as order_count
+from orders
+join books on orders.book_id = Books.book_id
+group by orders.Book_id, books.title
+order by Order_count desc;
+
+-- 16). SHOW THE TOP 3 MOST EXPENSIVE BOOKS OF 'FANTASY' GENRE
+select * from Books
+where genre ='Fantasy'
+order by price desc limit 3;
+
+
